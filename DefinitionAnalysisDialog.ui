@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DefinitionAnalysisDialog</class>
+ <widget class="QDialog" name="DefinitionAnalysisDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>930</width>
+    <height>527</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>930</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1000</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Definition analysis</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="3">
+    <widget class="QLabel" name="trsLabel">
+     <property name="text">
+      <string>Terrestrial Reference System:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3" colspan="2">
+    <widget class="QComboBox" name="trsComboBox">
+     <property name="minimumSize">
+      <size>
+       <width>80</width>
+       <height>0</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="5">
+    <widget class="QLabel" name="mapProjectionLabel">
+     <property name="text">
+      <string>Map projection:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="6">
+    <widget class="QComboBox" name="mapProjectionComboBox">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>0</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="7">
+    <widget class="QPushButton" name="falseEastingPpushButton">
+     <property name="text">
+      <string>False easting (m):</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="8">
+    <widget class="QLineEdit" name="falseEastingLineEdit">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="9" colspan="2">
+    <widget class="QPushButton" name="falseNorthingPpushButton">
+     <property name="text">
+      <string>False northing (m):</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="11" colspan="2">
+    <widget class="QLineEdit" name="falseNorthingLineEdit">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QLabel" name="referenceSurfaceLabel">
+     <property name="text">
+      <string>Reference surface:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2" colspan="2">
+    <widget class="QRadioButton" name="EllipsoidRadioButton">
+     <property name="text">
+      <string>Ellipsoid</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="4">
+    <widget class="QRadioButton" name="sphereRadioButton">
+     <property name="text">
+      <string>Sphere</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="5">
+    <widget class="QLabel" name="standardParallelLabel">
+     <property name="text">
+      <string>Standard Parallel:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="6">
+    <widget class="QPushButton" name="standardParalleleLatitudePushButton">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Latitude (DEG):</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="7">
+    <widget class="QLineEdit" name="standardParallelLatitudeLineEdit">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="8">
+    <widget class="QLabel" name="boundaryLatitudeLabel">
+     <property name="text">
+      <string>Boundary latitude (DEG)</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="9">
+    <widget class="QLineEdit" name="boundarylLatitudeLineEdit">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="10" colspan="2">
+    <widget class="QLabel" name="numberOfLODsLabel">
+     <property name="text">
+      <string>LODs:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="12">
+    <widget class="QComboBox" name="numberOfLODsComboBox">
+     <property name="minimumSize">
+      <size>
+       <width>80</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>80</width>
+       <height>16777215</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="proj4Label">
+     <property name="text">
+      <string>Proj4 string:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1" colspan="12">
+    <widget class="QLineEdit" name="proj4LineEdit"/>
+   </item>
+   <item row="3" column="0" colspan="13">
+    <widget class="QGroupBox" name="analysisResultsGroupBox">
+     <property name="maximumSize">
+      <size>
+       <width>2000</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="title">
+      <string>Analysis results:</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="0" column="0">
+       <widget class="QTableWidget" name="analysisResultsTableWidget">
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>150</number>
+        </attribute>
+        <attribute name="verticalHeaderDefaultSectionSize">
+         <number>60</number>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Level of \n Detail\n(LOD)</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>World Width\nand Height\(pixels)</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Pixel sizes\n(meters/pixel)\nin equator</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Map Scale\nat 96 dpi</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Pixel sizes\n(meters/pixel)\nat Standard\nlatitude</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Map Scale\n(254 dpi screen)\nat Standard\nLatitude</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
