@@ -17,7 +17,7 @@ CXXFLAGS      = -nologo -Zc:wchar_t -FS -Zc:strictStrings -Zc:throwingNew -O2 -M
 INCPATH       = -I. -I..\libProcessTools -I..\libCRS -I..\libIGDAL -I..\libRemoteSensing -I. -I"C:\Program Files\QGIS 3.4\include" -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtGui -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtANGLE -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtXml -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtSql -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore -Irelease -I. -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\win32-msvc2015 
 LINKER        = link
 LFLAGS        = /NOLOGO /DYNAMICBASE /NXCOMPAT /INCREMENTAL:NO /DLL /SUBSYSTEM:WINDOWS
-LIBS          = /LIBPATH:C:\dev\release /LIBPATH:"C:\Program Files\QGIS 3.4\bin" "C:\Program Files\QGIS 3.4\lib\proj_i.lib" "C:\Program Files\QGIS 3.4\lib\gdal_i.lib" "C:\Program Files\QGIS 3.4\lib\geos_c.lib" C:\dev\release\libProcessTools.lib C:\dev\release\libCRS.lib C:\dev\release\libIGDAL.lib C:\dev\release\libRemoteSensing.lib /LIBPATH:C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Widgets.lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Gui.lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Xml.lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Sql.lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Core.lib 
+LIBS          = /LIBPATH:..\..\..\build\release /LIBPATH:"C:\Program Files\QGIS 3.4\bin" "C:\Program Files\QGIS 3.4\lib\proj_i.lib" "C:\Program Files\QGIS 3.4\lib\gdal_i.lib" "C:\Program Files\QGIS 3.4\lib\geos_c.lib" ..\..\..\build\release\libProcessTools.lib ..\..\..\build\release\libCRS.lib ..\..\..\build\release\libIGDAL.lib ..\..\..\build\release\libRemoteSensing.lib /LIBPATH:C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Widgets.lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Gui.lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Xml.lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Sql.lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Core.lib 
 QMAKE         = C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\qmake.exe
 IDC           = idc
 IDL           = midl
@@ -77,9 +77,9 @@ DIST          =  libnestedgrid_global.h \
 		NestedGridProject.cpp \
 		CreateLODShapefileDialog.cpp
 QMAKE_TARGET  = libNestedGrid
-DESTDIR        = C:\dev\release\ #avoid trailing-slash linebreak
+DESTDIR        = ..\..\..\build\release\ #avoid trailing-slash linebreak
 TARGET         = libNestedGrid.dll
-DESTDIR_TARGET = C:\dev\release\libNestedGrid.dll
+DESTDIR_TARGET = ..\..\..\build\release\libNestedGrid.dll
 
 ####### Implicit rules
 
@@ -145,10 +145,10 @@ dist:
 
 clean: compiler_clean 
 	-$(DEL_FILE) release\NestedGridTools.obj release\DefinitionAnalysisDialog.obj release\QuadkeysDialog.obj release\NestedGridToolsImpl.obj release\NestedGridProject.obj release\CreateLODShapefileDialog.obj release\moc_DefinitionAnalysisDialog.obj release\moc_QuadkeysDialog.obj release\moc_NestedGridProject.obj release\moc_CreateLODShapefileDialog.obj
-	-$(DEL_FILE) C:\dev\release\libNestedGrid.exp
+	-$(DEL_FILE) ..\..\..\build\release\libNestedGrid.exp
 
 distclean: clean 
-	-$(DEL_FILE) C:\dev\release\libNestedGrid.lib
+	-$(DEL_FILE) ..\..\..\build\release\libNestedGrid.lib
 	-$(DEL_FILE) $(DESTDIR_TARGET)
 	-$(DEL_FILE) Makefile.Release
 
@@ -275,7 +275,7 @@ release\moc_DefinitionAnalysisDialog.cpp: C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\includ
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QSettings \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qsettings.h \
 		DefinitionAnalysisDialog.h
-	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libNestedGrid -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libProcessTools -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libCRS -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libIGDAL -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libNestedGrid -I"C:/Program Files/QGIS 3.4/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore DefinitionAnalysisDialog.h -o release\moc_DefinitionAnalysisDialog.cpp
+	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/dev/src/libs/libNestedGrid -IE:/dev/src/libs/libProcessTools -IE:/dev/src/libs/libCRS -IE:/dev/src/libs/libIGDAL -IE:/dev/src/libs/libRemoteSensing -IE:/dev/src/libs/libNestedGrid -I"C:/Program Files/QGIS 3.4/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore DefinitionAnalysisDialog.h -o release\moc_DefinitionAnalysisDialog.cpp
 
 release\moc_QuadkeysDialog.cpp: C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QDialog \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qdialog.h \
@@ -385,7 +385,7 @@ release\moc_QuadkeysDialog.cpp: C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidget
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QSettings \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qsettings.h \
 		QuadkeysDialog.h
-	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libNestedGrid -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libProcessTools -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libCRS -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libIGDAL -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libNestedGrid -I"C:/Program Files/QGIS 3.4/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore QuadkeysDialog.h -o release\moc_QuadkeysDialog.cpp
+	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/dev/src/libs/libNestedGrid -IE:/dev/src/libs/libProcessTools -IE:/dev/src/libs/libCRS -IE:/dev/src/libs/libIGDAL -IE:/dev/src/libs/libRemoteSensing -IE:/dev/src/libs/libNestedGrid -I"C:/Program Files/QGIS 3.4/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore QuadkeysDialog.h -o release\moc_QuadkeysDialog.cpp
 
 release\moc_NestedGridProject.cpp: C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QTextStream \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qtextstream.h \
@@ -462,7 +462,7 @@ release\moc_NestedGridProject.cpp: C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCor
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QStringList \
 		libnestedgrid_global.h \
 		NestedGridProject.h
-	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libNestedGrid -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libProcessTools -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libCRS -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libIGDAL -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libNestedGrid -I"C:/Program Files/QGIS 3.4/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore NestedGridProject.h -o release\moc_NestedGridProject.cpp
+	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/dev/src/libs/libNestedGrid -IE:/dev/src/libs/libProcessTools -IE:/dev/src/libs/libCRS -IE:/dev/src/libs/libIGDAL -IE:/dev/src/libs/libRemoteSensing -IE:/dev/src/libs/libNestedGrid -I"C:/Program Files/QGIS 3.4/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore NestedGridProject.h -o release\moc_NestedGridProject.cpp
 
 release\moc_CreateLODShapefileDialog.cpp: C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QDialog \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qdialog.h \
@@ -572,7 +572,7 @@ release\moc_CreateLODShapefileDialog.cpp: C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\includ
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QSettings \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qsettings.h \
 		CreateLODShapefileDialog.h
-	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libNestedGrid -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libProcessTools -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libCRS -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libIGDAL -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libNestedGrid -I"C:/Program Files/QGIS 3.4/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore CreateLODShapefileDialog.h -o release\moc_CreateLODShapefileDialog.cpp
+	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/dev/src/libs/libNestedGrid -IE:/dev/src/libs/libProcessTools -IE:/dev/src/libs/libCRS -IE:/dev/src/libs/libIGDAL -IE:/dev/src/libs/libRemoteSensing -IE:/dev/src/libs/libNestedGrid -I"C:/Program Files/QGIS 3.4/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore CreateLODShapefileDialog.h -o release\moc_CreateLODShapefileDialog.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -858,57 +858,6 @@ release\DefinitionAnalysisDialog.obj: DefinitionAnalysisDialog.cpp C:\Qt\Qt5.6.3
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QSettings \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qsettings.h \
 		ui_DefinitionAnalysisDialog.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QVariant \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QAction \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qaction.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtGui\qicon.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qactiongroup.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QApplication \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qapplication.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qcoreapplication.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qeventloop.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qdesktopwidget.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtGui\qguiapplication.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtGui\qinputmethod.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QButtonGroup \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qbuttongroup.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QComboBox \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qcombobox.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractitemdelegate.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qstyleoption.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractspinbox.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtGui\qvalidator.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qregularexpression.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qslider.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractslider.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qstyle.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qtabbar.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qtabwidget.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qrubberband.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qabstractitemmodel.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QGridLayout \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qgridlayout.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qlayout.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qlayoutitem.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qboxlayout.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QGroupBox \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qgroupbox.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QHeaderView \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qheaderview.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractitemview.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractscrollarea.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qitemselectionmodel.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QLabel \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qlabel.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QLineEdit \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QPushButton \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qpushbutton.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractbutton.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QRadioButton \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qradiobutton.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QTableWidget \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qtablewidget.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qtableview.h \
 		..\libCRS\CRSTools.h
 
 release\QuadkeysDialog.obj: QuadkeysDialog.cpp C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QMessageBox \
@@ -1054,61 +1003,6 @@ release\QuadkeysDialog.obj: QuadkeysDialog.cpp C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\i
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QSettings \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qsettings.h \
 		ui_QuadkeysDialog.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QVariant \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QAction \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qaction.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtGui\qicon.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qactiongroup.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QApplication \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qapplication.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qcoreapplication.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qeventloop.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qdesktopwidget.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtGui\qguiapplication.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtGui\qinputmethod.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QButtonGroup \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qbuttongroup.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QComboBox \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qcombobox.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractitemdelegate.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qstyleoption.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractspinbox.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtGui\qvalidator.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qregularexpression.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qslider.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractslider.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qstyle.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qtabbar.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qtabwidget.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qrubberband.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qabstractitemmodel.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QGridLayout \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qgridlayout.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qlayout.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qlayoutitem.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qboxlayout.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QGroupBox \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qgroupbox.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QHBoxLayout \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QHeaderView \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qheaderview.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractitemview.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractscrollarea.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qitemselectionmodel.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QLabel \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qlabel.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QLineEdit \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QPushButton \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qpushbutton.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractbutton.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QRadioButton \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qradiobutton.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QSpacerItem \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QTableWidget \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qtablewidget.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qtableview.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QVBoxLayout \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QWidget \
 		..\libCRS\CRSTools.h \
 		NestedGrid_definitions.h
 
@@ -1590,62 +1484,7 @@ release\CreateLODShapefileDialog.obj: CreateLODShapefileDialog.cpp C:\Qt\Qt5.6.3
 		..\libCRS\CRSTools.h \
 		CreateLODShapefileDialog.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QDialog \
-		ui_createLODShapefileDialog.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QVariant \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QAction \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qaction.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtGui\qicon.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qactiongroup.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QApplication \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qapplication.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qcoreapplication.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qeventloop.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qdesktopwidget.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtGui\qguiapplication.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtGui\qinputmethod.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QButtonGroup \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qbuttongroup.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QComboBox \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qcombobox.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractitemdelegate.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qstyleoption.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractspinbox.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtGui\qvalidator.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qregularexpression.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qslider.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractslider.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qstyle.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qtabbar.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qtabwidget.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qrubberband.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qabstractitemmodel.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QGridLayout \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qgridlayout.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qlayout.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qlayoutitem.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qboxlayout.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QGroupBox \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qgroupbox.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QHBoxLayout \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QHeaderView \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qheaderview.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractitemview.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractscrollarea.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qitemselectionmodel.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QLabel \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qlabel.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QLineEdit \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QPushButton \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qpushbutton.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qabstractbutton.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QRadioButton \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qradiobutton.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QSpacerItem \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QTabWidget \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QTableWidget \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qtablewidget.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qtableview.h \
-		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QWidget
+		ui_createLODShapefileDialog.h
 
 release\moc_DefinitionAnalysisDialog.obj: release\moc_DefinitionAnalysisDialog.cpp 
 
